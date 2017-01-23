@@ -115,10 +115,16 @@ public final class Cluster {
                 .nioPoolSize(settings.nioPoolSize)
                 .workerPoolSize(settings.workerPoolSize)
                 .maxInProcessPerConnection(settings.connectionPool.maxInProcessPerConnection)
+                .minInProcessPerConnection(settings.connectionPool.minInProcessPerConnection)
                 .maxSimultaneousUsagePerConnection(settings.connectionPool.maxSimultaneousUsagePerConnection)
                 .minSimultaneousUsagePerConnection(settings.connectionPool.minSimultaneousUsagePerConnection)
                 .maxConnectionPoolSize(settings.connectionPool.maxSize)
-                .minConnectionPoolSize(settings.connectionPool.minSize);
+                .minConnectionPoolSize(settings.connectionPool.minSize)
+                .maxWaitForConnection(settings.connectionPool.maxWaitForConnection)
+                .reconnectInterval(settings.connectionPool.reconnectInterval)
+                .reconnectIntialDelay(settings.connectionPool.reconnectInitialDelay)
+                .resultIterationBatchSize(settings.connectionPool.resultIterationBatchSize)
+                .maxContentLength(settings.connectionPool.maxContentLength);
 
         if (settings.username != null && settings.password != null)
             builder.credentials(settings.username, settings.password);
